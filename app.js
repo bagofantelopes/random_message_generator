@@ -4,8 +4,12 @@ const fs = require("fs");
 
 var messagesFirstHalf = fs.readFileSync('messages.txt').toString().split("\n");
 var messagesSecondHalf = fs.readFileSync('messages2.txt').toString().split("\n");
-var randomMessage = Math.floor(Math.random() * messagesFirstHalf.length);
-var randomMessage2 = Math.floor(Math.random() * messagesSecondHalf.length);
+var randomMessage = messagesFirstHalf[Math.floor(Math.random() * messagesFirstHalf.length)];
+var randomMessage2 = messagesSecondHalf[Math.floor(Math.random() * messagesSecondHalf.length)];
 
-console.log(`${messagesFirstHalf[randomMessage]}`);
-console.log(`${messagesSecondHalf[randomMessage2]}`);
+let finalMessage = [];
+
+finalMessage.push(randomMessage);
+finalMessage.push(randomMessage2);
+const x = finalMessage.join('\n');
+console.log(x);
